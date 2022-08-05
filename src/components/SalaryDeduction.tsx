@@ -2,14 +2,25 @@ import React from "react";
 import {Row, Col, Input, Button} from 'antd';
 import {CloseCircleOutlined, PlusOutlined} from "@ant-design/icons";
 
-const SalaryDeduction: React.FC<{ deductions: number[], setDeductions: (val: number[]) => void }> = ({ deductions,setDeductions }) => {
+const SalaryDeduction: React.FC<{ deductions: { id: number, amount: number}[], setDeductions: (val: { id: number, amount: number}[]) => void }> = ({ deductions,setDeductions }) => {
 
-    const changeDeduction = () => {
+    const changeDeduction = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
+        let changedDeduction = deductions.find(deduct => deduct.id === id);
+        const newDeductions = deductions.filter(deduct => deduct.id !== id);
 
+        if(changedDeduction !== undefined){
+            changedDeduction.amount = parseFloat(e.target.value);
+            setDeductions([ ...newDeductions, changedDeduction])
+        }
     }
 
     const addNewDeductions = () => {
-        setDeductions([ ...deductions, 0 ])
+        setDeductions([ ...deductions, { id: Math.random(), amount: 0} ])
+    }
+
+    const removeDeduction = (id: number) => {
+        const newDeductions = deductions.filter(deduct => deduct.id !== id);
+        setDeductions(newDeductions);
     }
 
     return(
@@ -26,17 +37,15 @@ const SalaryDeduction: React.FC<{ deductions: number[], setDeductions: (val: num
             </Row>
             { deductions.map(deduction => {
               return(
-                  <Row>
+                  <Row key={deduction.toString() + Math.random()}>
                       <Col>
-                          <Row key={deduction.toString() + Math.random()}>
-                              <Col>
-                                  <Input value={deduction} onChange={changeDeduction}/>
-                              </Col>
-                              <Col>
-                                  <CloseCircleOutlined size={20}/>
-                              </Col>
-                          </Row>
+                          <Input value={deduction.amount} onChange={ (e) => changeDeduction(e, deduction.id) }/>
                       </Col>
+                      <Button type={'link'} onClick={ () => removeDeduction(deduction.id) }>
+                          <Col>
+                              <CloseCircleOutlined size={20}/>
+                          </Col>
+                      </Button>
                   </Row>
               )
             })}

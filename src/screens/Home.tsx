@@ -5,9 +5,9 @@ import SalaryCalculator from "../components/SalaryCalculator";
 import SalarySummary from "../components/SalarySummary";
 
 const Home: React.FC = () => {
-    const [basicSalary, setBasicSalary] = useState<number>(0);
-    const [earnings, setEarnings] = useState<{ amount: number, epfEtfAllowed: boolean }[]>([{ amount: 0, epfEtfAllowed: false }]);
-    const [deductions, setDeductions] =useState<number[]>([0]);
+    const [basicSalary, setBasicSalary] = useState<number>(100000);
+    const [earnings, setEarnings] = useState<{ id: number, amount: number, epfEtfAllowed: boolean }[]>([{ id: 1,amount: 20000, epfEtfAllowed: false }, { id: 2, amount: 10000, epfEtfAllowed: true }]);
+    const [deductions, setDeductions] =useState<{ id: number, amount: number}[]>([{ id: 1, amount: 5000 }]);
 
     return(
         <div>

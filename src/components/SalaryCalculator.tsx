@@ -5,8 +5,8 @@ import BasicSalary from "./BasicSalary";
 import SalaryEarnings from "./SalaryEarnings";
 import SalaryDeduction from "./SalaryDeduction";
 
-const SalaryCalculator: React.FC<{ basicSalary: number, earnings: { amount: number, epfEtfAllowed: boolean }[], deductions: number[], setBasicSalary: (val: number) => void,
-    setEarnings: (val: { amount: number, epfEtfAllowed: boolean }[]) => void, setDeductions: (val: number[]) => void }> = ({ basicSalary, setBasicSalary, earnings, setEarnings, deductions, setDeductions }) => {
+const SalaryCalculator: React.FC<{ basicSalary: number, earnings: { id: number, amount: number, epfEtfAllowed: boolean }[], deductions: { id: number, amount: number}[], setBasicSalary: (val: number) => void,
+    setEarnings: (val: { id: number,amount: number, epfEtfAllowed: boolean }[]) => void, setDeductions: (val: { id: number, amount: number}[]) => void }> = ({ basicSalary, setBasicSalary, earnings, setEarnings, deductions, setDeductions }) => {
     return(
         <Card>
             <Row>
