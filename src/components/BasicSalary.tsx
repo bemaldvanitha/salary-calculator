@@ -5,11 +5,11 @@ const BasicSalary: React.FC<{ basicSalary: number, setBasicSalary: (val: number)
 
     return(
         <>
-            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-                <Col className="gutter-row" span={18}>
+            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify="space-evenly">
+                <Col className="gutter-row">
                     <h1 className={'mainTitle'}>Calculate your salary</h1>
                 </Col>
-                <Col className="gutter-row" span={4}>
+                <Col className="gutter-row">
                     <Button type={'link'} onClick={reset} icon={<Image preview={false} src={'./icon/reset.png'}
                                                                        style={{ padding: 8 }}/>} size={'large'}>
                         Reset

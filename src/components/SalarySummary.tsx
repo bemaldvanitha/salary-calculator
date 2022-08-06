@@ -59,7 +59,7 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
     }
 
     return(
-        <Card className={'card'}>
+        <Card className={'card2'}>
             <Row>
                 <Col>
                     <h1 className={'mainTitle'}>Your salary</h1>

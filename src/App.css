@@ -20,14 +20,25 @@
 }
 
 .calculatorSubSection {
-    margin: 30px 5px 25px 40px;
+    margin: 30px 5px 30px 5px;
 }
 
 .card {
     background: #FAFAFA;
     border: 1px solid #E0E0E0;
     border-radius: 8px;
-    margin: 25px 40px;
+    margin: 25px 20px 25px 40px;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card2 {
+    background: #FAFAFA;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    margin: 25px 20px 25px 40px;
 }
 
 .mainTitle {

@@ -36,15 +36,15 @@ const SalaryEarnings: React.FC<{ earnings: { id: number, amount: number, epfEtfA
             </Row>
             { earnings.map(earning => {
                 return (
-                    <Row key={earning.id} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-                        <Col className="gutter-row" span={16}>
+                    <Row key={earning.id} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify="space-around">
+                        <Col className="gutter-row" >
                             <Input value={earning.amount} onChange={(e) =>setEarningAmount(e, earning.id) }/>
                         </Col>
-                        <Col className="gutter-row" span={4}>
+                        <Col className="gutter-row" >
                             <Button type={'link'} onClick={ () => removeAllowance(earning.id) }
                                     icon={<Image preview={false} src={'./icon/close.png'}/>} size={'large'}/>
                         </Col>
-                        <Col className="gutter-row" span={4}>
+                        <Col className="gutter-row" >
                             <Checkbox onChange={(e) => setEarningEpfEtf(e, earning.id) } checked={earning.epfEtfAllowed}>EPF/ETF</Checkbox>
                         </Col>
                     </Row>
