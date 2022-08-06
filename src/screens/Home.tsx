@@ -1,13 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col } from 'antd';
 
 import SalaryCalculator from "../components/SalaryCalculator";
 import SalarySummary from "../components/SalarySummary";
 
 const Home: React.FC = () => {
-    const [basicSalary, setBasicSalary] = useState<number>(100000);
-    const [earnings, setEarnings] = useState<{ id: number, amount: number, epfEtfAllowed: boolean }[]>([{ id: 1,amount: 20000, epfEtfAllowed: false }, { id: 2, amount: 10000, epfEtfAllowed: true }]);
-    const [deductions, setDeductions] =useState<{ id: number, amount: number}[]>([{ id: 1, amount: 5000 }]);
+    const [basicSalary, setBasicSalary] = useState<number>(0);
+    const [earnings, setEarnings] = useState<{ id: number, amount: number, epfEtfAllowed: boolean }[]>([]);
+    const [deductions, setDeductions] =useState<{ id: number, amount: number}[]>([]);
+    const [firstRun, setFirstRun] = useState<boolean>(true);
+
+    useEffect(() => {
+        const basicSal = localStorage.getItem("basicSalary");
+        const earningsSal = localStorage.getItem("earnings");
+        const deductionsSal = localStorage.getItem("deductions");
+
+        if(basicSal !== null && earningsSal !== null  && deductionsSal !== null){
+            setBasicSalary(JSON.parse(basicSal));
+            setEarnings(JSON.parse(earningsSal));
+            setDeductions(JSON.parse(deductionsSal));
+            setFirstRun(false);
+        }
+    },[]);
+
+    useEffect(() => {
+        if(!firstRun) {
+            localStorage.setItem("basicSalary", JSON.stringify(basicSalary));
+            localStorage.setItem("earnings", JSON.stringify(earnings));
+            localStorage.setItem("deductions", JSON.stringify(deductions));
+        }
+    },[basicSalary, earnings, deductions]);
 
     const resetValues = () => {
         setBasicSalary(0);

@@ -31,7 +31,7 @@ const SalaryDeduction: React.FC<{ deductions: { id: number, amount: number}[],
             </Row>
             { deductions.map(deduction => {
               return(
-                  <Row key={deduction.toString() + Math.random()} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                  <Row key={deduction.id} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                       <Col className="gutter-row" span={20}>
                           <Input value={deduction.amount} onChange={ (e) => changeDeduction(e, deduction.id) }/>
                       </Col>
