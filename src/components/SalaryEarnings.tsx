@@ -26,40 +26,32 @@ const SalaryEarnings: React.FC<{ earnings: { id: number, amount: number, epfEtfA
         <>
             <Row>
                 <Col>
-                    <h2>Earnings</h2>
+                    <h2 className={'subCategoryTitle'}>Earnings</h2>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    Allowance, Fixed Allowance, Bonus and etc.
+                    <p className={'subDetail'}>Allowance, Fixed Allowance, Bonus and etc.</p>
                 </Col>
             </Row>
             { earnings.map(earning => {
                 return (
-                    <Row key={earning.amount.toString() + Math.random()}>
-                        <Col>
+                    <Row key={earning.amount.toString() + Math.random()} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                        <Col className="gutter-row" span={16}>
                             <Input value={earning.amount} onChange={(e) =>setEarningAmount(e, earning.id) }/>
                         </Col>
-                        <Button type={'link'} onClick={ () => removeAllowance(earning.id) }>
-                            <Col>
-                                <Image src={'./icon/close.png'} width={32} height={32}/>
-                            </Col>
-                        </Button>
-                        <Col>
+                        <Col className="gutter-row" span={4}>
+                            <Button type={'link'} onClick={ () => removeAllowance(earning.id) }
+                                    icon={<Image src={'./icon/close.png'}/>} size={'large'}/>
+                        </Col>
+                        <Col className="gutter-row" span={4}>
                             <Checkbox onChange={(e) => setEarningEpfEtf(e, earning.id) } checked={earning.epfEtfAllowed}>EPF/ETF</Checkbox>
                         </Col>
                     </Row>
                 )
             })}
-            <Button type={'link'} onClick={addNewAllowance}>
-                <Row>
-                    <Col>
-                        <Image src={'./icon/add.png'} width={14} height={14}/>
-                    </Col>
-                    <Col>
-                        Add New Allowance
-                    </Col>
-                </Row>
+            <Button type={'link'} onClick={addNewAllowance} icon={<Image src={'./icon/add.png'} style={{ padding: 8 }}/>} size={'large'}>
+                Add New Allowance
             </Button>
         </>
     )

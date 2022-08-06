@@ -1,0 +1,30 @@
+.subDetail {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: right;
+    color: #757575;
+}
+
+.subCategoryTitle {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.1px;
+    color: #000000;
+}
+
+.calculatorSubSection {
+    margin: 25px 40px;
+}
+
+.card {
+    background: #FAFAFA;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    margin: 25px 30px;
+}

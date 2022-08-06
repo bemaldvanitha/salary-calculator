@@ -9,12 +9,14 @@ const BasicSalary: React.FC<{ basicSalary: number, setBasicSalary: (val: number)
                 <Col>
                     <h1>Calculate your salary</h1>
                 </Col>
-                <Button type={'link'} onClick={reset}>
-                    <Col>
-                        <Image src={'./icon/reset.png'} width={21} height={18}/>
-                        Reset
-                    </Col>
+                <Button type={'link'} onClick={reset} icon={<Image src={'./icon/reset.png'} style={{ padding: 8 }}/>} size={'large'}>
+                    Reset
                 </Button>
+            </Row>
+            <Row>
+                <Col>
+                    <h2 className={'subCategoryTitle'}>Basic Salary</h2>
+                </Col>
             </Row>
             <Row>
                 <Col>

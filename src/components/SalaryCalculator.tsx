@@ -12,20 +12,20 @@ const SalaryCalculator: React.FC<{ basicSalary: number, earnings: { id: number, 
     reset: () => void }> = ({ basicSalary, setBasicSalary, earnings, deductions, reset, changeDeductions, changeEarnings, addRemoveEarnings, addRemoveDeductions }) => {
 
     return(
-        <Card>
-            <Row>
+        <Card className={'card'}>
+            <Row className={'calculatorSubSection'}>
                 <Col>
                     <BasicSalary basicSalary={ basicSalary } setBasicSalary={ setBasicSalary } reset={reset}/>
                 </Col>
             </Row>
-            <Row>
+            <Row className={'calculatorSubSection'}>
                 <Col>
                     <SalaryEarnings earnings={ earnings } changeEarnings={ changeEarnings }
                                     addRemoveEarnings={addRemoveEarnings}/>
                 </Col>
             </Row>
             <Divider/>
-            <Row>
+            <Row className={'calculatorSubSection'}>
                 <Col>
                     <SalaryDeduction deductions={ deductions } changeDeductions={ changeDeductions }
                                      addRemoveDeductions={addRemoveDeductions}/>

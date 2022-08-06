@@ -21,37 +21,29 @@ const SalaryDeduction: React.FC<{ deductions: { id: number, amount: number}[],
         <>
             <Row>
                 <Col>
-                    Deductions
+                    <h2 className={'subCategoryTitle'}>Deductions</h2>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    Salary Advances, Loan Deductions and all
+                    <p className={'subDetail'}>Salary Advances, Loan Deductions and all</p>
                 </Col>
             </Row>
             { deductions.map(deduction => {
               return(
-                  <Row key={deduction.toString() + Math.random()}>
-                      <Col>
+                  <Row key={deduction.toString() + Math.random()} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                      <Col className="gutter-row" span={20}>
                           <Input value={deduction.amount} onChange={ (e) => changeDeduction(e, deduction.id) }/>
                       </Col>
-                      <Button type={'link'} onClick={ () => removeDeduction(deduction.id) }>
-                          <Col>
-                              <Image src={'./icon/close.png'} width={32} height={32}/>
-                          </Col>
-                      </Button>
+                      <Col className="gutter-row" span={4}>
+                        <Button type={'link'} onClick={ () => removeDeduction(deduction.id) }
+                                icon={<Image src={'./icon/close.png'}/>} size={'large'}/>
+                      </Col>
                   </Row>
               )
             })}
-            <Button type={'link'} onClick={addNewDeductions}>
-                <Row>
-                    <Col>
-                        <Image src={'./icon/add.png'} width={14} height={14}/>
-                    </Col>
-                    <Col>
-                        Add New Allowance
-                    </Col>
-                </Row>
+            <Button type={'link'} onClick={addNewDeductions} icon={<Image src={'./icon/add.png'} style={{ padding: 8 }}/>} size={'large'}>
+                Add New Allowance
             </Button>
         </>
     )
