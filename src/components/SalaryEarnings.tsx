@@ -42,7 +42,7 @@ const SalaryEarnings: React.FC<{ earnings: { id: number, amount: number, epfEtfA
                         </Col>
                         <Col className="gutter-row" span={4}>
                             <Button type={'link'} onClick={ () => removeAllowance(earning.id) }
-                                    icon={<Image src={'./icon/close.png'}/>} size={'large'}/>
+                                    icon={<Image preview={false} src={'./icon/close.png'}/>} size={'large'}/>
                         </Col>
                         <Col className="gutter-row" span={4}>
                             <Checkbox onChange={(e) => setEarningEpfEtf(e, earning.id) } checked={earning.epfEtfAllowed}>EPF/ETF</Checkbox>
@@ -50,7 +50,8 @@ const SalaryEarnings: React.FC<{ earnings: { id: number, amount: number, epfEtfA
                     </Row>
                 )
             })}
-            <Button type={'link'} onClick={addNewAllowance} icon={<Image src={'./icon/add.png'} style={{ padding: 8 }}/>} size={'large'}>
+            <Button type={'link'} onClick={addNewAllowance} icon={<Image src={'./icon/add.png'} style={{ padding: 8 }} preview={false}/>}
+                     size={'large'}>
                 Add New Allowance
             </Button>
         </>
