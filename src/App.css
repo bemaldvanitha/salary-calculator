@@ -1,6 +1,9 @@
-.subDetail {
+* {
     font-family: 'Inter';
     font-style: normal;
+}
+
+.subDetail {
     font-weight: 400;
     font-size: 12px;
     line-height: 20px;
@@ -9,8 +12,6 @@
 }
 
 .subCategoryTitle {
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
@@ -19,12 +20,46 @@
 }
 
 .calculatorSubSection {
-    margin: 25px 40px;
+    margin: 30px 5px 25px 40px;
 }
 
 .card {
     background: #FAFAFA;
     border: 1px solid #E0E0E0;
     border-radius: 8px;
-    margin: 25px 30px;
+    margin: 25px 40px;
+}
+
+.mainTitle {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.022px;
+    color: #000000;
+    padding: 5px;
+}
+
+.summarySubDetail {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: #757575;
+}
+
+.summaryText {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.summaryNumber {
+    text-align: right;
+}
+
+.innerCard {
+    border: 0.78437px solid #E0E0E0;
+    border-radius: 4px;
+    margin: 20px;
 }

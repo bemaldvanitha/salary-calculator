@@ -62,80 +62,86 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
         <Card className={'card'}>
             <Row>
                 <Col>
-                    <h1>Your salary</h1>
+                    <h1 className={'mainTitle'}>Your salary</h1>
                 </Col>
             </Row>
             <Row>
-                <Col span={7}>
-                    Items
+                <Col span={12}>
+                    <p className={'summarySubDetail'}>Items</p>
                 </Col>
-                <Col span={7}>
-                    Amount
-                </Col>
-            </Row>
-            <Row>
-                <Col span={7}>
-                    Basic Salary
-                </Col>
-                <Col span={7}>
-                    { basicSalary }
+                <Col span={12}>
+                    <p className={'summarySubDetail summaryNumber'}>Amount</p>
                 </Col>
             </Row>
             <Row>
-                <Col span={7}>
-                    Gross Earning
+                <Col span={12}>
+                    <p className={'summaryText'}>Basic Salary</p>
                 </Col>
-                <Col span={7}>
-                    { calcTotalAllowances() }
-                </Col>
-            </Row>
-            <Row>
-                <Col span={7}>
-                    Gross Deduction
-                </Col>
-                <Col span={7}>
-                    { calcTotalDeductions() }
+                <Col span={12}>
+                    <p className={'summaryNumber summaryText'}>{ basicSalary }</p>
                 </Col>
             </Row>
             <Row>
-                <Col span={7}>
-                    Employee EPF (8%)
+                <Col span={12}>
+                    <p className={'summaryText'}>Gross Earning</p>
                 </Col>
-                <Col span={7}>
-                    { epf8() }
+                <Col span={12}>
+                    <p className={'summaryNumber summaryText'}>{ calcTotalAllowances() }</p>
                 </Col>
             </Row>
-            <Card>
+            <Row>
+                <Col span={12}>
+                    <p className={'summaryText'}>Gross Deduction</p>
+                </Col>
+                <Col span={12}>
+                    <p className={'summaryNumber summaryText'}>{ calcTotalDeductions() }</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col span={12}>
+                    <p className={'summaryText'}>Employee EPF (8%)</p>
+                </Col>
+                <Col span={12}>
+                    <p className={'summaryNumber summaryText'}>{ epf8() }</p>
+                </Col>
+            </Row>
+            <Card className={'innerCard'}>
                 <Row>
-                    <Col span={7}>Net Salary (Take Home)</Col>
-                    <Col span={7}>{ netSalaryTakenHome() }</Col>
+                    <Col span={12}>
+                        <h2 className={'subCategoryTitle'}>Net Salary (Take Home)</h2>
+                    </Col>
+                    <Col span={12}>
+                        <h2 className={'subCategoryTitle summaryNumber'}>{ netSalaryTakenHome() }</h2>
+                    </Col>
                 </Row>
             </Card>
             <Row>
-                <Col>Contribution from the Employer</Col>
-            </Row>
-            <Row>
-                <Col span={7}>
-                    Employer EPF (12%)
-                </Col>
-                <Col span={7}>
-                    { epf12() }
+                <Col>
+                    <p className={'summarySubDetail'}>Contribution from the Employer</p>
                 </Col>
             </Row>
             <Row>
-                <Col span={7}>
-                    Employer ETF (3%)
+                <Col span={12}>
+                    <p className={'summaryText'}>Employer EPF (12%)</p>
                 </Col>
-                <Col span={7}>
-                    { etf3() }
+                <Col span={12}>
+                    <p className={'summaryNumber summaryText'}>{ epf12() }</p>
                 </Col>
             </Row>
             <Row>
-                <Col span={7}>
-                    CTC (Cost to Company)
+                <Col span={12}>
+                    <p className={'summaryText'}>Employer ETF (3%)</p>
                 </Col>
-                <Col span={7}>
-                    { costToCompany() }
+                <Col span={12}>
+                    <p className={'summaryNumber summaryText'}>{ etf3() }</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col span={12}>
+                    <p className={'summaryText'}>CTC (Cost to Company)</p>
+                </Col>
+                <Col span={12}>
+                    <p className={'summaryNumber summaryText'}>{ costToCompany() }</p>
                 </Col>
             </Row>
         </Card>
