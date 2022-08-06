@@ -1,12 +1,7 @@
 import React from "react";
-import { Row, Col, Input, Button } from 'antd';
-import { ReloadOutlined } from '@ant-design/icons';
+import { Row, Col, Input, Button, Image } from 'antd';
 
-const BasicSalary: React.FC<{ basicSalary: number, setBasicSalary: (val: number) => void }> = ({ basicSalary, setBasicSalary }) => {
-
-    const reset = () => {
-
-    }
+const BasicSalary: React.FC<{ basicSalary: number, setBasicSalary: (val: number) => void, reset: () => void }> = ({ basicSalary, setBasicSalary, reset }) => {
 
     return(
         <>
@@ -16,7 +11,7 @@ const BasicSalary: React.FC<{ basicSalary: number, setBasicSalary: (val: number)
                 </Col>
                 <Button type={'link'} onClick={reset}>
                     <Col>
-                        <ReloadOutlined />
+                        <Image src={'./icon/reset.png'} width={21} height={18}/>
                         Reset
                     </Col>
                 </Button>

@@ -1,38 +1,25 @@
 import React from "react";
-import { Row, Col, Input, Checkbox, Button } from 'antd';
-import { CloseCircleOutlined, PlusOutlined } from '@ant-design/icons'
+import { Row, Col, Input, Checkbox, Button, Image } from 'antd';
 import {CheckboxChangeEvent} from "antd/es/checkbox";
 
 const SalaryEarnings: React.FC<{ earnings: { id: number, amount: number, epfEtfAllowed: boolean }[],
-    setEarnings: (val: { id: number, amount: number, epfEtfAllowed: boolean }[]) => void }> = ({ earnings, setEarnings }) => {
+    addRemoveEarnings: (id: number | undefined) => void,
+    changeEarnings: (value: number | boolean, id: number) => void}> = ({ earnings, changeEarnings, addRemoveEarnings }) => {
 
     const setEarningAmount = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
-        let changedAllowance = earnings.find(earning => earning.id === id);
-        const newAllowances = earnings.filter(earning => earning.id !== id);
-
-        if(changedAllowance !== undefined){
-            changedAllowance.amount = parseFloat(e.target.value);
-            setEarnings([ ...newAllowances, changedAllowance])
-        }
+        changeEarnings(parseFloat(e.target.value), id);
     }
 
     const setEarningEpfEtf = (e: CheckboxChangeEvent, id: number) => {
-        let changedAllowance = earnings.find(earning => earning.id === id);
-        const newAllowances = earnings.filter(earning => earning.id !== id);
-
-        if(changedAllowance !== undefined){
-            changedAllowance.epfEtfAllowed = e.target.checked;
-            setEarnings([ ...newAllowances, changedAllowance])
-        }
+        changeEarnings(e.target.checked, id);
     }
 
     const addNewAllowance = () => {
-        setEarnings([...earnings, { id: Math.random(), amount: 0, epfEtfAllowed: false }])
+        addRemoveEarnings(-1);
     }
 
     const removeAllowance = (id: number) => {
-        const newAllowances = earnings.filter(earning => earning.id !== id);
-        setEarnings(newAllowances);
+        addRemoveEarnings(id);
     }
 
     return(
@@ -55,7 +42,7 @@ const SalaryEarnings: React.FC<{ earnings: { id: number, amount: number, epfEtfA
                         </Col>
                         <Button type={'link'} onClick={ () => removeAllowance(earning.id) }>
                             <Col>
-                                <CloseCircleOutlined size={20}/>
+                                <Image src={'./icon/close.png'} width={32} height={32}/>
                             </Col>
                         </Button>
                         <Col>
@@ -67,7 +54,7 @@ const SalaryEarnings: React.FC<{ earnings: { id: number, amount: number, epfEtfA
             <Button type={'link'} onClick={addNewAllowance}>
                 <Row>
                     <Col>
-                        <PlusOutlined />
+                        <Image src={'./icon/add.png'} width={14} height={14}/>
                     </Col>
                     <Col>
                         Add New Allowance

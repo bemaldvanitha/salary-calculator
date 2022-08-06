@@ -1,26 +1,20 @@
 import React from "react";
-import {Row, Col, Input, Button} from 'antd';
-import {CloseCircleOutlined, PlusOutlined} from "@ant-design/icons";
+import { Row, Col, Input, Button, Image } from 'antd';
 
-const SalaryDeduction: React.FC<{ deductions: { id: number, amount: number}[], setDeductions: (val: { id: number, amount: number}[]) => void }> = ({ deductions,setDeductions }) => {
+const SalaryDeduction: React.FC<{ deductions: { id: number, amount: number}[],
+    addRemoveDeductions: (id: number | undefined) => void, changeDeductions: (value: number, id: number) => void }>
+    = ({ deductions, changeDeductions, addRemoveDeductions }) => {
 
     const changeDeduction = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
-        let changedDeduction = deductions.find(deduct => deduct.id === id);
-        const newDeductions = deductions.filter(deduct => deduct.id !== id);
-
-        if(changedDeduction !== undefined){
-            changedDeduction.amount = parseFloat(e.target.value);
-            setDeductions([ ...newDeductions, changedDeduction])
-        }
+        changeDeductions(parseFloat(e.target.value), id);
     }
 
     const addNewDeductions = () => {
-        setDeductions([ ...deductions, { id: Math.random(), amount: 0} ])
+        addRemoveDeductions(-1);
     }
 
     const removeDeduction = (id: number) => {
-        const newDeductions = deductions.filter(deduct => deduct.id !== id);
-        setDeductions(newDeductions);
+        addRemoveDeductions(id);
     }
 
     return(
@@ -43,7 +37,7 @@ const SalaryDeduction: React.FC<{ deductions: { id: number, amount: number}[], s
                       </Col>
                       <Button type={'link'} onClick={ () => removeDeduction(deduction.id) }>
                           <Col>
-                              <CloseCircleOutlined size={20}/>
+                              <Image src={'./icon/close.png'} width={32} height={32}/>
                           </Col>
                       </Button>
                   </Row>
@@ -52,7 +46,7 @@ const SalaryDeduction: React.FC<{ deductions: { id: number, amount: number}[], s
             <Button type={'link'} onClick={addNewDeductions}>
                 <Row>
                     <Col>
-                        <PlusOutlined />
+                        <Image src={'./icon/add.png'} width={14} height={14}/>
                     </Col>
                     <Col>
                         Add New Allowance

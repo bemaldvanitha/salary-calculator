@@ -5,24 +5,30 @@ import BasicSalary from "./BasicSalary";
 import SalaryEarnings from "./SalaryEarnings";
 import SalaryDeduction from "./SalaryDeduction";
 
-const SalaryCalculator: React.FC<{ basicSalary: number, earnings: { id: number, amount: number, epfEtfAllowed: boolean }[], deductions: { id: number, amount: number}[], setBasicSalary: (val: number) => void,
-    setEarnings: (val: { id: number,amount: number, epfEtfAllowed: boolean }[]) => void, setDeductions: (val: { id: number, amount: number}[]) => void }> = ({ basicSalary, setBasicSalary, earnings, setEarnings, deductions, setDeductions }) => {
+const SalaryCalculator: React.FC<{ basicSalary: number, earnings: { id: number, amount: number, epfEtfAllowed: boolean }[],
+    deductions: { id: number, amount: number}[], setBasicSalary: (val: number) => void,
+    changeDeductions: (value: number, id: number) => void, changeEarnings: (value: number | boolean, id: number) => void,
+    addRemoveEarnings: (id: number | undefined) => void, addRemoveDeductions: (id: number | undefined) => void,
+    reset: () => void }> = ({ basicSalary, setBasicSalary, earnings, deductions, reset, changeDeductions, changeEarnings, addRemoveEarnings, addRemoveDeductions }) => {
+
     return(
         <Card>
             <Row>
                 <Col>
-                    <BasicSalary basicSalary={ basicSalary } setBasicSalary={ setBasicSalary }/>
+                    <BasicSalary basicSalary={ basicSalary } setBasicSalary={ setBasicSalary } reset={reset}/>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <SalaryEarnings earnings={ earnings } setEarnings={ setEarnings }/>
+                    <SalaryEarnings earnings={ earnings } changeEarnings={ changeEarnings }
+                                    addRemoveEarnings={addRemoveEarnings}/>
                 </Col>
             </Row>
             <Divider/>
             <Row>
                 <Col>
-                    <SalaryDeduction deductions={ deductions } setDeductions={ setDeductions }/>
+                    <SalaryDeduction deductions={ deductions } changeDeductions={ changeDeductions }
+                                     addRemoveDeductions={addRemoveDeductions}/>
                 </Col>
             </Row>
         </Card>
