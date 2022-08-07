@@ -33,7 +33,7 @@ const SalaryDeduction: React.FC<{ deductions: { id: number, amount: number}[],
               return(
                   <Row key={deduction.id} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                       <Col className="gutter-row" span={20}>
-                          <Input value={deduction.amount} onChange={ (e) => changeDeduction(e, deduction.id) }/>
+                          <Input value={deduction.amount} onChange={ (e) => changeDeduction(e, deduction.id) } type={'number'}/>
                       </Col>
                       <Col className="gutter-row" span={4}>
                         <Button type={'link'} onClick={ () => removeDeduction(deduction.id) }

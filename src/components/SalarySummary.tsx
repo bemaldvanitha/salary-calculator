@@ -78,7 +78,9 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
                     <p className={'summaryText'}>Basic Salary</p>
                 </Col>
                 <Col span={12}>
-                    <p className={'summaryNumber summaryText'}>{ basicSalary }</p>
+                    <p className={'summaryNumber summaryText'}>
+                        { basicSalary.toLocaleString('en', {minimumFractionDigits: 2}) }
+                    </p>
                 </Col>
             </Row>
             <Row>
@@ -86,7 +88,9 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
                     <p className={'summaryText'}>Gross Earning</p>
                 </Col>
                 <Col span={12}>
-                    <p className={'summaryNumber summaryText'}>{ calcTotalAllowances() }</p>
+                    <p className={'summaryNumber summaryText'}>
+                        { calcTotalAllowances().toLocaleString('en', {minimumFractionDigits: 2}) }
+                    </p>
                 </Col>
             </Row>
             <Row>
@@ -94,7 +98,9 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
                     <p className={'summaryText'}>Gross Deduction</p>
                 </Col>
                 <Col span={12}>
-                    <p className={'summaryNumber summaryText'}>{ calcTotalDeductions() }</p>
+                    <p className={'summaryNumber summaryText'}>
+                        { calcTotalDeductions().toLocaleString('en', {minimumFractionDigits: 2}) }
+                    </p>
                 </Col>
             </Row>
             <Row>
@@ -102,7 +108,9 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
                     <p className={'summaryText'}>Employee EPF (8%)</p>
                 </Col>
                 <Col span={12}>
-                    <p className={'summaryNumber summaryText'}>{ epf8() }</p>
+                    <p className={'summaryNumber summaryText'}>
+                        { epf8().toLocaleString('en', {minimumFractionDigits: 2}) }
+                    </p>
                 </Col>
             </Row>
             <Card className={'innerCard'}>
@@ -111,7 +119,9 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
                         <h2 className={'subCategoryTitle'}>Net Salary (Take Home)</h2>
                     </Col>
                     <Col span={12}>
-                        <h2 className={'subCategoryTitle summaryNumber'}>{ netSalaryTakenHome() }</h2>
+                        <h2 className={'subCategoryTitle summaryNumber'}>
+                            { netSalaryTakenHome().toLocaleString('en', {minimumFractionDigits: 2}) }
+                        </h2>
                     </Col>
                 </Row>
             </Card>
@@ -125,7 +135,9 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
                     <p className={'summaryText'}>Employer EPF (12%)</p>
                 </Col>
                 <Col span={12}>
-                    <p className={'summaryNumber summaryText'}>{ epf12() }</p>
+                    <p className={'summaryNumber summaryText'}>
+                        { epf12().toLocaleString('en', {minimumFractionDigits: 2}) }
+                    </p>
                 </Col>
             </Row>
             <Row>
@@ -133,7 +145,9 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
                     <p className={'summaryText'}>Employer ETF (3%)</p>
                 </Col>
                 <Col span={12}>
-                    <p className={'summaryNumber summaryText'}>{ etf3() }</p>
+                    <p className={'summaryNumber summaryText'}>
+                        { etf3().toLocaleString('en', {minimumFractionDigits: 2}) }
+                    </p>
                 </Col>
             </Row>
             <Row>
@@ -141,7 +155,9 @@ const SalarySummary: React.FC<{ basicSalary: number, earnings: { amount: number,
                     <p className={'summaryText'}>CTC (Cost to Company)</p>
                 </Col>
                 <Col span={12}>
-                    <p className={'summaryNumber summaryText'}>{ costToCompany() }</p>
+                    <p className={'summaryNumber summaryText'}>
+                        { costToCompany().toLocaleString('en', {minimumFractionDigits: 2}) }
+                    </p>
                 </Col>
             </Row>
         </Card>

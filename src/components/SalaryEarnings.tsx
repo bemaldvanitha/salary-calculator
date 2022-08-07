@@ -38,7 +38,7 @@ const SalaryEarnings: React.FC<{ earnings: { id: number, amount: number, epfEtfA
                 return (
                     <Row key={earning.id} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify="space-around">
                         <Col className="gutter-row" >
-                            <Input value={earning.amount} onChange={(e) =>setEarningAmount(e, earning.id) }/>
+                            <Input value={earning.amount} onChange={(e) =>setEarningAmount(e, earning.id) } type={'number'}/>
                         </Col>
                         <Col className="gutter-row" >
                             <Button type={'link'} onClick={ () => removeAllowance(earning.id) }

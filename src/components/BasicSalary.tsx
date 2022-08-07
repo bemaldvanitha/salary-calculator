@@ -23,7 +23,7 @@ const BasicSalary: React.FC<{ basicSalary: number, setBasicSalary: (val: number)
             </Row>
             <Row>
                 <Col>
-                    <Input onChange={(e) => setBasicSalary(parseFloat(e.target.value))} value={basicSalary.toFixed(2)}/>
+                    <Input onChange={(e) => setBasicSalary(parseFloat(e.target.value))} value={ basicSalary } type={'number'}/>
                 </Col>
             </Row>
         </>
