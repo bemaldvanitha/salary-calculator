@@ -44,7 +44,7 @@ const SalaryDeduction: React.FC<{ deductions: { id: number, amount: number}[],
             })}
             <Button type={'link'} onClick={addNewDeductions} icon={<Image src={'./icon/add.png'} style={{ padding: 8 }} preview={false}/>}
                     size={'large'}>
-                Add New Allowance
+                Add New Deduction
             </Button>
         </>
     )
